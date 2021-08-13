@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MONGO_URI ='mongodb://localhost:27017';
+const MONGO_URI ='mongodb://localhost:27017/mern-pizza';
 
 mongoose.connect(MONGO_URI, {useUnifiedTopology: true, useNewUrlParser: true});
 
