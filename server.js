@@ -3,22 +3,13 @@ const db = require('./dbConnect');
 
 const Pizza = require('./models/pizzaModel');
 const app = express();
+const pizzasRoute = require('./routes/pizzasRoute');
 
+app.use('/api/pizzas', pizzasRoute);
 app.use(express.json());
 
 app.get('/', (req, res)=> {
     res.send('Server is working.');
-});
-
-app.get('/pizzas', async (req, res)=> {
-    const pizzas = await Pizza.find({}, (err, docs)=> {
-        if (err) {
-            console.log(err);
-        } else {
-            res.send(docs)
-        }
-    });
-    
 });
 
 const PORT = process.env.PORT || 5000
